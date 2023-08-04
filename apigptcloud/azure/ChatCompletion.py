@@ -1,16 +1,16 @@
 import requests
-from apigptcloud import openai
+from apigptcloud import azure
 import json
 
 
-def create(model: str, messages: list, **kwargs):
-    url = openai.api_base + "/chat/completions"
+def create(messages: list, **kwargs):
+    url = ("https://" + azure.resource_name + ".openai.azure.com/openai/deployments/" + azure.deployment_name +
+           "/chat/completions?api-version=" + azure.api_version)
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': "Bearer " + openai.api_key
+        'api-key': azure.api_key
     }
     data = {
-        "model": model,
         "messages": messages,
     }
     # validate kwargs
