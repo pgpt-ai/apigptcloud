@@ -1,3 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+readme = "README.md"
+
+[project.urls]
+"Homepage" = "https://github.com/apigptcloud/apigpt"
+"Bug Tracker" = "https://github.com/apigptcloud/apigpt/issues"
