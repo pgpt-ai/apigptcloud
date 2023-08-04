@@ -1,7 +1,7 @@
 from . import (
     ChatCompletion,
     Completion,
-    # Embedding,
+    Embedding,
 )
 
 
