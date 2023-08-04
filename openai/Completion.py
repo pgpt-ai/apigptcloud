@@ -5,15 +5,15 @@ import json
 valid_args = ["temperature", "stream", "max_tokens"]
 
 
-def create(model: str, messages: list, **kwargs):
-    url = openai.api_base + "/chat/completions"
+def create(model: str, prompt: str, **kwargs):
+    url = openai.api_base + "/completions"
     headers = {
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + openai.api_key
     }
     data = {
         "model": model,
-        "messages": messages,
+        "prompt": prompt,
     }
     # validate kwargs
     for arg in kwargs:
@@ -31,4 +31,3 @@ def create(model: str, messages: list, **kwargs):
                     data["max_tokens"] = kwargs[arg]
 
     return json.dumps(requests.post(url, headers=headers, json=data).json(), indent=2)
-
