@@ -1,5 +1,5 @@
 import requests
-import openai
+from apigptcloud import openai
 import json
 
 

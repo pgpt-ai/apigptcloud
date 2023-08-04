@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
-import requests
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'All in one AIGC API package for Python'
 LONG_DESCRIPTION = 'All in one AIGC API package for Python'
 
@@ -17,7 +16,11 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=[requests],
-
-
+    install_requires=['requests'],
+    keywords=['python', 'first package'],
+    classifiers=[
+        "Development Status :: 1 - Planning",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+    ]
 )
