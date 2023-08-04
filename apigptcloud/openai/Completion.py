@@ -13,7 +13,6 @@ def create(model: str, prompt: str, **kwargs):
         "model": model,
         "prompt": prompt,
     }
-    # validate kwargs
     for arg in kwargs:
         data[arg] = kwargs[arg]
 

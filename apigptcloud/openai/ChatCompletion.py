@@ -13,7 +13,6 @@ def create(model: str, messages: list, **kwargs):
         "model": model,
         "messages": messages,
     }
-    # validate kwargs
     for arg in kwargs:
         data[arg] = kwargs[arg]
 

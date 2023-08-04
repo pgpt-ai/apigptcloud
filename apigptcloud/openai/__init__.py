@@ -5,4 +5,4 @@ from . import (
 )
 
 api_key: str = ""
-api_base: str = "https://api.openai.com/v1"
+api_base: str = "https://openai.pgpt.cloud/v1"

@@ -1,19 +1,16 @@
 import requests
-from apigptcloud import azure
+from apigptcloud import chatglm
 import json
 
-
 def create(messages: list, **kwargs):
-    url = ("https://" + azure.resource_name + ".openai.azure.com/openai/deployments/" + azure.deployment_name +
-           "/chat/completions?api-version=" + azure.api_version)
+    url = openai.api_base + "/chat/completions"
     headers = {
         'Content-Type': 'application/json',
-        'api-key': azure.api_key
+        'Authorization': "Bearer " + chatglm.api_key
     }
     data = {
         "messages": messages,
     }
-    # validate kwargs
     for arg in kwargs:
         data[arg] = kwargs[arg]
 

@@ -1,4 +1,4 @@
 from . import (
     openai,
-    azure,
+    chatglm,
 )
