@@ -3,7 +3,7 @@ from apigptcloud import chatglm
 import json
 
 def create(messages: list, **kwargs):
-    url = openai.api_base + "/chat/completions"
+    url = chatglm.api_base + "/chat/completions"
     headers = {
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + chatglm.api_key
