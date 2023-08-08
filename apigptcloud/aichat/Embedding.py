@@ -20,9 +20,19 @@ def txt(file_path: str, integration_id: int):
     aichat.auth.fake_login()
     url = aichat.url + "/api/pglearn/embedding/txt/"
     headers = aichat.global_headers
+    # print(headers)
     payload = {'integration_id': integration_id}
     files = [
-        ('file', ('file', open(file_path, 'rb'), 'application/octet-stream'))
+        ('file', ('file', open(file_path, 'rb'), 'application/plain'))
     ]
     return json.dumps(
         requests.request("POST", url, headers=headers, data=payload, files=files).json(), indent=2)
+
+
+def plain(plain: str, integration_id: int):
+    aichat.auth.fake_login()
+    url = aichat.url + "/api/pglearn/embedding/plain/"
+    headers = aichat.global_headers
+    payload = {'integration_id': integration_id, 'plain': plain}
+    return json.dumps(
+        requests.request("POST", url, headers=headers, data=payload).json(), indent=2)

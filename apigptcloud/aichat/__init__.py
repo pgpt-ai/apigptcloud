@@ -1,6 +1,7 @@
 from . import (
     auth,
-    embedding,
+    Embedding,
+    Chat,
 )
 
 url = "http://192.168.1.19:8000"
