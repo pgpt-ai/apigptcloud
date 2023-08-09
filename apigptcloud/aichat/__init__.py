@@ -1,16 +1,10 @@
 from . import (
-    auth,
     Embedding,
     Chat,
 )
 
-url = "http://192.168.1.19:8000"
-# url = "https://pgpt.dev.freedropship.cn"
-# url = 'https://app.pgpt.cloud'
+api_key: str = ""
 
-global_headers = {
-        'Cache-Control': "no-cache",
-        'Accept': "*/*",
-        'Accept-Encoding': "gzip, deflate, br",
-        'Connection': "keep-alive",
-}
+api_base = "http://192.168.1.19:8000"
+# api_base = "https://pgpt.dev.freedropship.cn"
+# api_base = 'https://app.pgpt.cloud'

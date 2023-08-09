@@ -4,7 +4,6 @@ import json
 
 
 def openai(query: str, integration_id: int):
-    aichat.auth.fake_login()
     url = aichat.url + "/api/pgcompletion/document/chat/"
     headers = aichat.global_headers
     payload = {'integration_id': integration_id, 'query': query, 'llm': 'openai'}
@@ -12,7 +11,6 @@ def openai(query: str, integration_id: int):
 
 
 def chatglm(query: str, integration_id: int):
-    aichat.auth.fake_login()
     url = aichat.url + "/api/pgcompletion/document/chat/"
     headers = aichat.global_headers
     payload = {'integration_id': integration_id, 'query': query, 'llm': 'chatglm'}
