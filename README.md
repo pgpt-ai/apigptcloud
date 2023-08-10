@@ -5,7 +5,7 @@
 _Read this in [English](README_EN.md)_
 
 ## 介绍
-本包旨在简化调用难度的同时，提供与原AIGC提供商一致的接口调用方式。
+apigptcloud旨在简化调用难度的同时，提供与原AIGC提供商一致的接口调用方式。
 
 ## 安装
 ```bash
@@ -13,9 +13,8 @@ pip install apigptcloud
 ```
 
 ## 使用方法
-目前，我们提供以下AIGC提供商的接口，点击以查看如何调用：
+目前，我们提供以下AIGC提供商的接口，点击以查看如何使用apigptcloud调用：
 * [OpenAI](docs/openai.md)
-* Claude
+* [Claude](docs/claude.md)
 * ChatGLM
-
 
