@@ -47,3 +47,12 @@ def excel(file_path: str):
     files = [('file', (os.path.basename(file_path), open(file_path, 'rb'),
                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))]
     return requests.request("POST", url, headers=headers, data=payload, files=files).json()
+
+
+def urls(path: str):
+    url = aichat.api_base + "/v1/embeddings/"
+    headers = {
+        'Authorization': aichat.api_key
+    }
+    payload = {'type': 'url', 'text': path}
+    return requests.request("POST", url, headers=headers, data=payload).json()
