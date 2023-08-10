@@ -49,10 +49,23 @@ def excel(file_path: str):
     return requests.request("POST", url, headers=headers, data=payload, files=files).json()
 
 
-def web(path: str):
+def web(url: str):
     url = aichat.api_base + "/v1/embeddings/"
     headers = {
         'Authorization': aichat.api_key
     }
-    payload = {'type': 'url', 'text': path}
+    payload = {'type': 'url', 'text': url}
     return requests.request("POST", url, headers=headers, data=payload).json()
+
+
+def word(file_path: str):
+    url = aichat.api_base + "/v1/embeddings/"
+    headers = {
+        'Authorization': aichat.api_key
+    }
+    payload = {'type': 'word'}
+    files = [
+        ('file', (os.path.basename(file_path), open(
+            file_path, 'rb'), 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'))
+    ]
+    return requests.request("POST", url, headers=headers, data=payload, files=files).json()
