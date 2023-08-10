@@ -14,8 +14,7 @@ def pdf(file_path: str):
         ('file', (os.path.basename(file_path), open(file_path, 'rb'), 'application/pdf'))
     ]
 
-    return json.dumps(
-        requests.request("POST", url, headers=headers, data=payload, files=files).json(), indent=2)
+    return requests.request("POST", url, headers=headers, data=payload, files=files).json()
 
 
 def txt(file_path: str):
@@ -27,8 +26,7 @@ def txt(file_path: str):
     files = [
         ('file', (os.path.basename(file_path), open(file_path, 'rb'), 'application/plain'))
     ]
-    return json.dumps(
-        requests.request("POST", url, headers=headers, data=payload, files=files).json(), indent=2)
+    return requests.request("POST", url, headers=headers, data=payload, files=files).json()
 
 
 def plain(text: str):
@@ -37,5 +35,15 @@ def plain(text: str):
         'Authorization': aichat.api_key
     }
     payload = {'type': 'plain', 'text': text}
-    return json.dumps(
-        requests.request("POST", url, headers=headers, data=payload).json(), indent=2)
+    return requests.request("POST", url, headers=headers, data=payload).json()
+
+
+def excel(file_path: str):
+    url = aichat.api_base + "/v1/embeddings/"
+    headers = {
+        'Authorization': aichat.api_key
+    }
+    payload = {'type': 'excel'}
+    files = [('file', (os.path.basename(file_path), open(file_path, 'rb'),
+                       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))]
+    return requests.request("POST", url, headers=headers, data=payload, files=files).json()
