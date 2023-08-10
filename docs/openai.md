@@ -1,4 +1,4 @@
-# OpenAI API 使用方法
+# OpenAI API 调用方法
 
 ## 配置环境
 ```python
