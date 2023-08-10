@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 DESCRIPTION = 'All in one AIGC API package for Python'
 LONG_DESCRIPTION = 'All in one AIGC API package for Python'
 
