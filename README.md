@@ -1,6 +1,6 @@
 # apigptcloud
 
-专为Python提供的一站式AIGC接口调用集成包。有关我们的其他服务，欢迎访问我们的官网[apigpt.cloud](https://apigpt.cloud/)。
+专为Python提供的一站式AIGC接口集成包。有关我们的其他服务，欢迎访问我们的官网[apigpt.cloud](https://apigpt.cloud/)。
 
 _Read this in [English](README_EN.md)_
 
@@ -16,5 +16,7 @@ pip install apigptcloud
 目前，我们提供以下AIGC提供商的接口，点击以查看如何使用apigptcloud调用：
 * [OpenAI](docs/openai.md)
 * [Claude](docs/claude.md)
-* ChatGLM
+* [ChatGLM](docs/chatglm.md)
 
+此外，我们还提供一个基于Langchain搭建的AIChat服务接口：
+* [AIChat](docs/aichat.md)
