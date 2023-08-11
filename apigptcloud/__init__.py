@@ -2,5 +2,6 @@ from . import (
     openai,
     chatglm,
     claude,
-    aichat
+    aichat,
+    stablediffusion
 )
