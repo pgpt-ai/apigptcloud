@@ -17,6 +17,7 @@ pip install apigptcloud
 * [OpenAI](docs/openai.md)
 * [Claude](docs/claude.md)
 * [ChatGLM](docs/chatglm.md)
+* [Stable Diffusion](docs/stablediffusion.md)
 
 此外，我们还提供一个基于Langchain搭建的AIChat服务接口：
 * [AIChat](docs/aichat.md)
