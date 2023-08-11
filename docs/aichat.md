@@ -33,6 +33,14 @@ res = aichat.Embedding.web("https://docs.apigpt.cloud/")
 # word 格式，传入.docx文件路径。
 res = aichat.Embedding.word("test.docx")
 ```
+返回示例：
+```json
+{
+    "errno": 0,
+    "data": {},
+    "msg": "success"
+}
+```
 
 ### 文档问答
 
@@ -41,4 +49,12 @@ res = aichat.Embedding.word("test.docx")
 res = aichat.Chat.openai("这个网站是关于什么的？")
 
 res = aichat.Chat.chatglm("这个文章写了什么？")
+```
+返回示例：
+```json5
+{
+  'errno': 0, 
+  'data': {'response': '我是一个语言模型AI助手，如果你有任何问题或需要帮助，请随时告诉我！'}, 
+  'msg': 'success'
+}
 ```

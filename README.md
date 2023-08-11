@@ -16,7 +16,7 @@ pip install apigptcloud
 目前，我们提供以下AIGC提供商的接口，点击以查看如何使用apigptcloud调用：
 * [OpenAI](docs/openai.md)
 * [Claude](docs/claude.md)
-* [ChatGLM](docs/chatglm.md)
+* [ChatGLM2](docs/chatglm.md)
 * [Stable Diffusion](docs/stablediffusion.md)
 
 此外，我们还提供一个基于Langchain搭建的AIChat服务接口：
