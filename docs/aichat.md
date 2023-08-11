@@ -46,9 +46,9 @@ res = aichat.Embedding.word("test.docx")
 
 待embedding结束后，您可以与AIChat助手进行交互式文档问答。您可以通过以下接口选择我们所支持的AIGC提供商：
 ```python
-res = aichat.Chat.openai("这个网站是关于什么的？")
+res = aichat.Chat.openai("介绍你自己。")
 
-res = aichat.Chat.chatglm("这个文章写了什么？")
+res = aichat.Chat.chatglm("介绍你自己。")
 ```
 返回示例：
 ```json5
