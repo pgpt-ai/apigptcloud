@@ -1,6 +1,6 @@
-# ChatGLM API Usage
+# ChatGLM API 调用方法
 
-## Config
+## 配置环境
 ```python
 from apigptcloud import chatglm
 chatglm.api_key = ""
@@ -8,7 +8,7 @@ chatglm.api_base = ""
 ```
 
 ## ChatCompletion
-Request example:
+请求示例：
 ```python
 res = chatglm.ChatCompletion.create(
     messages=[
@@ -18,7 +18,7 @@ res = chatglm.ChatCompletion.create(
     temperature=1,
 )
 ```
-Response example:
+返回示例：
 ```json
 {
     "model": "chatglm2-6b",

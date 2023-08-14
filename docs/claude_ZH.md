@@ -1,13 +1,13 @@
-# Claude API Usage
+# Claude API 调用方法
 
-## Config
+## 配置环境
 ```python
 from apigptcloud import claude
 claude.api_key = ""
 claude.api_base = ""
 ```
 ## Completion
-Request example:
+请求示例：
 ```python
 res = claude.Completion.create(
     model="claude-1",
@@ -15,7 +15,7 @@ res = claude.Completion.create(
     max_tokens_to_sample=256
 )
 ```
-Response example:
+返回示例：
 ```json
 {
     "completion": " Hello! My name is Claude.",

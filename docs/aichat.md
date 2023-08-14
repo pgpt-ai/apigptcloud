@@ -1,44 +1,59 @@
-# AIChat API 调用方法
+# AIChat API Usage
 
-## 准备
-前往[apigpt.cloud](https://apigpt.cloud/)注册账号，获取api_key。
+## Before you start...
+Sign up at [apigpt.cloud](https://apigpt.cloud/) and get your api_key.
 
-## 配置环境
+## Config
 ```python
 from apigptcloud import aichat
 aichat.api_key = ""
 ```
 
-## 如何使用
+## Usage
 
 ### Embedding
-
-首先，请将您的文档提供给我们的AIChat模型进行Embedding。 我们支持以下多种格式：
+To begin with, please upload your documents to our end for embedding. We currently support the following formats:
 ```python
-# pdf 格式，传入文件路径。
+# pdf，pass in the file path.
 res = aichat.Embedding.pdf("test.pdf")
 
-# txt 格式，传入文件路径。
+# txt，pass in the file path.
 res = aichat.Embedding.txt("test.txt")
 
-# 传入字符串。
+# pass in any string.
 res = aichat.Embedding.plain("Hello, world!")
 
-# excel 格式，传入.xlsx文件路径。
+# excel，pass in the .xlsx file path.
 res = aichat.Embedding.excel("test.xlsx")
 
-# 传入网页链接。
+# pass in the web page url.
 res = aichat.Embedding.web("https://docs.apigpt.cloud/")
 
-# word 格式，传入.docx文件路径。
+# word，pass in the .docx file path.
 res = aichat.Embedding.word("test.docx")
 ```
+Response example:
+```json
+{
+    "errno": 0,
+    "data": {},
+    "msg": "success"
+}
+```
 
-### 文档问答
+### Document Q&A
 
-待embedding结束后，您可以与AIChat助手进行交互式文档问答。您可以通过以下接口选择我们所支持的AIGC提供商：
+After that, you may now communicate with your AIChat assistant, who can retrieve info from your documents. You can choose from the following AIGC providers:
 ```python
-res = aichat.Chat.openai("这个网站是关于什么的？")
+res = aichat.Chat.openai("Introduce yourself.")
 
-res = aichat.Chat.chatglm("这个文章写了什么？")
+res = aichat.Chat.chatglm("Introduce yourself.")
+```
+Response example:
+```json5
+{
+  'errno': 0, 
+  'data': {'response': 'I am your personal AI assistant. I can help you with anything you need.'}, 
+  'msg': 'success'
+}
 ```

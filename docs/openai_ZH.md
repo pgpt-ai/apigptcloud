@@ -1,6 +1,6 @@
-# OpenAI API Usage
+# OpenAI API 调用方法
 
-## Config
+## 配置环境
 ```python
 from apigptcloud import openai
 openai.api_key = ""
@@ -8,7 +8,7 @@ openai.api_base = ""
 ```
 
 ## ChatCompletion
-Request example:
+请求示例：
 ```python
 res = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
@@ -19,7 +19,7 @@ res = openai.ChatCompletion.create(
     temperature=2,
 )
 ```
-Response example:
+返回示例：
 ```json
 {
     "id":"chatcmpl-7SKQgp3ry5w9ZB0A3mMcvYOFB1VYG",
@@ -44,7 +44,7 @@ Response example:
 }
 ```
 ## Completion
-Request example:
+请求示例：
 ```python
 res = openai.Completion.create(
     model="gpt-3.5-turbo",
@@ -53,7 +53,7 @@ res = openai.Completion.create(
     temperature=0
 )
 ```
-Response example:
+返回示例：
 ```json
 {
     "id": "cmpl-7TkgRTfjrz80goegsOC2nrkzi1WPm",
@@ -76,14 +76,14 @@ Response example:
 }
 ```
 ## Embedding
-Request example:
+请求示例：
 ```python
 res = openai.Embedding.create(
     model="gpt-3.5-turbo",
     input="The food was delicious and the waiter..."
 )
 ```
-Response example:
+返回示例：
 ```json
 {
     "object": "list",

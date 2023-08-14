@@ -5,7 +5,6 @@ import json
 
 def create(messages: list, **kwargs):
     url = chatglm.api_base
-    print(url)
     headers = {
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + chatglm.api_key
