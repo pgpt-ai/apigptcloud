@@ -1,14 +1,14 @@
-# Stable Diffusion API Usage
+# Stable Diffusion API 调用方法
 
-## Config
+## 配置环境
 ```python
 from apigptcloud import stablediffusion
 stablediffusion.api_key = ""
 stablediffusion.api_base = ""
 ```
 
-## Draw
-Request example:
+## 画图
+请求示例：
 ```python
 res = stablediffusion.draw.create(
     prompt="Cat", 
@@ -16,7 +16,7 @@ res = stablediffusion.draw.create(
     size="16:9" #'16:9', '1:1', '9:16', '3:4', '4:3'
 )
 ```
-Response example:
+返回示例：
 ```json
 {
   "urls": [
