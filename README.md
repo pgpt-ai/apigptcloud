@@ -13,10 +13,10 @@ pip install apigptcloud
 
 ## Usage
 For now, we support the following AIGC providers' APIs, click to see their usages in apigptcloud:
-* [OpenAI](docs/openai_ZH.md)
-* [Claude](docs/claude_ZH.md)
-* [ChatGLM2](docs/chatglm_ZH.md)
-* [Stable Diffusion](docs/stablediffusion_ZH.md)
+* [OpenAI](docs/openai.md)
+* [Claude](docs/claude.md)
+* [ChatGLM2](docs/chatglm.md)
+* [Stable Diffusion](docs/stablediffusion.md)
 
 And, we also provide an AIChat service based on Langchain:
-* [AIChat](docs/aichat_ZH.md)
+* [AIChat](docs/aichat.md)
