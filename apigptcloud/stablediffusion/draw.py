@@ -16,4 +16,4 @@ def create(prompt: str, quantity: int, size: str, **kwargs):
     }
     for arg in kwargs:
         data[arg] = kwargs[arg]
-    return json.dumps(requests.post(url, headers=headers, json=data).json(), indent=2)
+    return requests.post(url, headers=headers, json=data).json()
