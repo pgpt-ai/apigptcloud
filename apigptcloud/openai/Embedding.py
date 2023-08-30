@@ -13,5 +13,5 @@ def create(model: str, input):
         "model": model,
         "input": input,
     }
-    return json.dumps(requests.post(url, headers=headers, json=data).json(), indent=2)
+    return requests.post(url, headers=headers, json=data).json()
 
