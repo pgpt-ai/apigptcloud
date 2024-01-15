@@ -1,6 +1,5 @@
 import requests
 from apigptcloud import openai
-import json
 
 
 def create(model: str, messages: list, **kwargs):
