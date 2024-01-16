@@ -1,7 +1,6 @@
 from . import (
-    ChatCompletion,
-    Completion,
-    Embedding,
+    embeddings,
+    chat
 )
 
 api_key: str = ""

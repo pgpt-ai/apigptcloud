@@ -1,3 +1,4 @@
+# Compeletion was deprecated on January 4th, 2024.
 import requests
 from apigptcloud import openai
 
