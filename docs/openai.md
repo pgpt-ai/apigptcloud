@@ -7,10 +7,10 @@ openai.api_key = ""
 openai.api_base = ""
 ```
 
-## ChatCompletion
+## Chat
 Request example:
 ```python
-res = openai.ChatCompletion.create(
+res = openai.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
@@ -43,42 +43,14 @@ Response example:
     }
 }
 ```
+
 ## Completion
-Request example:
-```python
-res = openai.Completion.create(
-    model="gpt-3.5-turbo",
-    prompt="I am a apple, and you are",
-    max_tokens=7,
-    temperature=0
-)
-```
-Response example:
-```json
-{
-    "id": "cmpl-7TkgRTfjrz80goegsOC2nrkzi1WPm",
-    "object": "text_completion",
-    "created": 1687325319,
-    "model": "gpt-35-turbo",
-    "choices": [
-    {
-      "text": " 20 year old female and I",
-      "index": 0,
-      "finish_reason": "length",
-      "logprobs": null
-    }
-    ],
-    "usage": {
-    "completion_tokens": 7,
-    "prompt_tokens": 3,
-    "total_tokens": 10
-    }
-}
-```
+Compeletion was deprecated on January 4th, 2024. Please use `gpt-3.5-turbo-instruct` model as a substitute. The usage is the same as Chat.
+
 ## Embedding
 Request example:
 ```python
-res = openai.Embedding.create(
+res = openai.embeddings.create(
     model="gpt-3.5-turbo",
     input="The food was delicious and the waiter..."
 )
@@ -86,23 +58,9 @@ res = openai.Embedding.create(
 Response example:
 ```json
 {
-    "object": "list",
-    "data": [
-    {
-      "object": "embedding",
-      "embedding": [
-        0.0023064255,
-        -0.009327292,
-        .... (1536 floats total for ada-002)
-        -0.0028842222,
-      ],
-      "index": 0
-    }
-    ],
-    "model": "text-embedding-ada-002",
-    "usage": {
-    "prompt_tokens": 8,
-    "total_tokens": 8
-    }
+  'object': 'list', 
+  'data': [{'object': 'embedding', 'index': 0, 'embedding': [...]}], 
+  'model': 'ada', 
+  'usage': {'prompt_tokens': 8, 'total_tokens': 8}
 }
 ```
