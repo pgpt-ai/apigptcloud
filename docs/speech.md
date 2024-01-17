@@ -1,9 +1,11 @@
 # Speech Usage
 
 ## Config
+
 ```python
-from apigptcloud import speech
-speech.api_key = ""
+from apigptcloud import audioai
+
+audioai.api_key = ""
 ```
 
 ## Text to Speech
@@ -28,9 +30,9 @@ Response example:
   Request example:  
   File name: "zh-CN_0.wav"  
   File path: "./test/zh-CN_0.wav"  
-  Language: "zh-CN"  
+  Language: "zh-CN"
   ```python
-  res = speech.stt.speech_2_text_wav("zh-CN_0.wav", "./test/zh-CN_0.wav", "zh-CN")
+  res = speech.stt.create_wav("zh-CN_0.wav", "./test/zh-CN_0.wav", "zh-CN")
   ```
   Response example:
     ```json

@@ -4,5 +4,6 @@ from . import (
     claude,
     aichat,
     stablediffusion,
-    speech,
+    audioai,
+    textai,
 )

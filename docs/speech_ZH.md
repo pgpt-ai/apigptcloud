@@ -1,9 +1,11 @@
 # Speech 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import speech
-speech.api_key = ""
+from apigptcloud import audioai
+
+audioai.api_key = ""
 ```
 
 ## 文字转语音
@@ -28,9 +30,9 @@ res = speech.tts.text_2_speech("zh-CN-XiaoxiaoNeural", "你好今天天气如何
   请求示例：  
   文件名："zh-CN_0.wav"  
   文件路径："./test/zh-CN_0.wav"  
-  语言："zh-CN"  
+  语言："zh-CN"
   ```python
-  res = speech.stt.speech_2_text_wav("zh-CN_0.wav", "./test/zh-CN_0.wav", "zh-CN")
+  res = speech.stt.create_wav("zh-CN_0.wav", "./test/zh-CN_0.wav", "zh-CN")
   ```
   返回示例：
     ```json

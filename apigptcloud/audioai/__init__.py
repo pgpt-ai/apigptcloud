@@ -1,4 +1,4 @@
-from . import tts, stt
+from . import speech, transcriptions
 
 
 api_key: str = ""

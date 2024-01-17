@@ -21,5 +21,6 @@ For now, we support the following AIGC providers' APIs, click to see their usage
 And, we also provide an AIChat service based on Langchain:
 * [AIChat](docs/aichat.md)
 
-Some useful tools:
-
+Some useful tools:  
+* [Speech](docs/speech.md)
+* 
