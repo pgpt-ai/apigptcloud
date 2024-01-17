@@ -58,9 +58,13 @@ res = openai.embeddings.create(
 Response example:
 ```json
 {
-  'object': 'list', 
-  'data': [{'object': 'embedding', 'index': 0, 'embedding': [...]}], 
-  'model': 'ada', 
-  'usage': {'prompt_tokens': 8, 'total_tokens': 8}
+  "object": "embedding",
+  "embedding": [
+    0.0023064255,
+    -0.009327292,
+    .... (1536 floats total for ada-002)
+    -0.0028842222,
+  ],
+  "index": 0
 }
 ```

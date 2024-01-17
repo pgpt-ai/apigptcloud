@@ -3,5 +3,6 @@ from . import (
     chatglm,
     claude,
     aichat,
-    stablediffusion
+    stablediffusion,
+    speech,
 )
