@@ -21,3 +21,5 @@ pip install apigptcloud
 
 此外，我们还提供一个基于Langchain搭建的AIChat服务接口：
 * [AIChat](docs/aichat_ZH.md)
+
+一些有用的工具：
