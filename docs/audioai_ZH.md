@@ -1,7 +1,6 @@
-# Speech 调用方法
+# AudioAI 调用方法
 
 ## 配置环境
-
 ```python
 from apigptcloud import audioai
 audioai.api_key = ""
@@ -9,14 +8,11 @@ audioai.api_key = ""
 
 ## 文字转语音
 请求示例：  
-模型："model"  
-声音："zh-CN-XiaoxiaoNeural"  
-内容："你好今天天气如何?"
 ```python
 res = audioai.speech.create(
-  "model", 
-  "zh-CN-XiaoxiaoNeural", 
-  "你好今天天气如何?"
+  "model", # 模型
+  "zh-CN-XiaoxiaoNeural", # 声音
+  "你好今天天气如何?" # 内容
 )
 ```
 
@@ -30,16 +26,13 @@ res = audioai.speech.create(
 ```
 
 ## 语音转文字
-请求示例：  
-模型："model"  
-文件："speech.mp3"  
-语言："zh-CN"
+请求示例：
 ```python
 file = open("speech.mp3", "rb")
 res = audioai.transcriptions.create(
-  "model", 
-  file, 
-  "zh-CN"
+  "model", # 模型
+  file, # 文件
+  "zh-CN" # 语言
 )
 ```
 返回示例：

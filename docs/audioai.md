@@ -7,15 +7,12 @@ audioai.api_key = ""
 ```
 
 ## Text to Speech
-Request example:  
-Model: "model"  
-Voice: "zh-CN-XiaoxiaoNeural"  
-Content: "你好今天天气如何?"
+Request example:
 ```python
 res = audioai.speech.create(
-  "model", 
-  "zh-CN-XiaoxiaoNeural", 
-  "你好今天天气如何?"
+  "model", # Model
+  "zh-CN-XiaoxiaoNeural", # Voice
+  "你好今天天气如何?" # Content
 )
 ```
 
@@ -29,16 +26,13 @@ Response example:
 ```
 
 ## Speech to Text
-Request example:  
-Model: "model"    
-File: "speech.mp3"  
-Language: "zh-CN"
+Request example:
 ```python
 file = open("speech.mp3", "rb")
 res = audioai.transcriptions.create(
-  "model", 
-  file, 
-  "zh-CN"
+  "model", # Model
+  file, # File
+  "zh-CN" # Language
 )
 ```
 Response example:

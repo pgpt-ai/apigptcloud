@@ -23,4 +23,5 @@ pip install apigptcloud
 * [AIChat](docs/aichat_ZH.md)
 
 一些有用的工具：
-* [Speech](docs/audioai_ZH)
+* [AudioAI](docs/audioai_ZH)
+* [TextAI](docs/textai_ZH)
