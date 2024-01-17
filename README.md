@@ -22,5 +22,5 @@ And, we also provide an AIChat service based on Langchain:
 * [AIChat](docs/aichat.md)
 
 Some useful tools:  
-* [AudioAI](docs/audioai)
-* [TextAI](docs/textai)
+* [AudioAI](docs/audioai.md)
+* [TextAI](docs/textai.md)
