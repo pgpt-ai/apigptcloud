@@ -9,7 +9,7 @@ claude.api_base = ""
 ## Completion
 请求示例：
 ```python
-res = claude.Completion.create(
+res = claude.completions.create(
     model="claude-1",
     prompt="I am a apple, and you are",
     max_tokens_to_sample=256
