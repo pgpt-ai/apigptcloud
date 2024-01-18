@@ -10,9 +10,9 @@ audioai.api_key = ""
 请求示例：  
 ```python
 res = audioai.speech.create(
-  "model", # 模型
-  "zh-CN-XiaoxiaoNeural", # 声音
-  "你好今天天气如何?" # 内容
+  model="model",
+  voice="zh-CN-XiaoxiaoNeural",
+  input="你好今天天气如何?"
 )
 ```
 
@@ -30,9 +30,9 @@ res = audioai.speech.create(
 ```python
 file = open("speech.mp3", "rb")
 res = audioai.transcriptions.create(
-  "model", # 模型
-  file, # 文件
-  "zh-CN" # 语言
+  model="model",
+  file=file,
+  lang="zh-CN"
 )
 ```
 返回示例：

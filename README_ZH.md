@@ -19,6 +19,9 @@ pip install apigptcloud
 * [ChatGLM2](docs/chatglm_ZH.md)
 * [Stable Diffusion](docs/stablediffusion_ZH.md)
 
+或者，使用我们的集成接口：
+* [AllAI](docs/allai_ZH.md)
+
 此外，我们还提供一个基于Langchain搭建的AIChat服务接口：
 * [AIChat](docs/aichat_ZH.md)
 

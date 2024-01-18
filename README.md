@@ -18,6 +18,9 @@ For now, we support the following AIGC providers' APIs, click to see their usage
 * [ChatGLM2](docs/chatglm.md)
 * [Stable Diffusion](docs/stablediffusion.md)
 
+Or, use our integrated API:
+* [AllAI](docs/allai.md)
+
 And, we also provide an AIChat service based on Langchain:
 * [AIChat](docs/aichat.md)
 

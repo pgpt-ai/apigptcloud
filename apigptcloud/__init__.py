@@ -6,4 +6,5 @@ from . import (
     stablediffusion,
     audioai,
     textai,
+    allai,
 )

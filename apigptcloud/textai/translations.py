@@ -2,7 +2,7 @@ import requests
 from apigptcloud import textai
 
 
-def create(language: list, text: str):
+def create(model: str, language: list, text: str):
     url = f"{textai.api_base}/v1/translate/"
     headers = {
         "Content-Type": "application/json",
