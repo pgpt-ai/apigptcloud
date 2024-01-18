@@ -3,6 +3,10 @@ from apigptcloud import openai
 
 
 def create(model: str, input):
+
+    if openai.api_base == "":
+        openai.api_base = "https://openai.pgpt.cloud/v1"
+
     url = openai.api_base + "/embeddings"
     headers = {
         'Content-Type': 'application/json',

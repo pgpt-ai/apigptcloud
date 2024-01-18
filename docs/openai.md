@@ -6,7 +6,7 @@ from apigptcloud import openai
 openai.api_key = ""
 openai.api_base = ""
 ```
-If `openai.api_base` is empty, the default endpoint [pgpt.cloud](https://pgpt.cloud) will be used. Please fill in the corresponding API Key in `openai.api_key`.
+If `openai.api_base` is not specified, the default endpoint [pgpt.cloud](https://pgpt.cloud) will be used. Please fill in the corresponding API Key in `openai.api_key`.
 
 ## Chat
 Request example:

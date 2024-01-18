@@ -6,7 +6,7 @@ from apigptcloud import openai
 openai.api_key = ""
 openai.api_base = ""
 ```
-如果`openai.api_base`为空，则默认使用[pgpt.cloud](https://pgpt.cloud)端点，请将相应的API Key填入`openai.api_key`。
+如果不声明`openai.api_base`，则默认使用[pgpt.cloud](https://pgpt.cloud)端点，请将相应的API Key填入`openai.api_key`。
 
 
 ## Chat

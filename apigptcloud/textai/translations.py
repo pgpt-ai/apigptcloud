@@ -3,6 +3,10 @@ from apigptcloud import textai
 
 
 def create(model: str, language: list, text: str):
+
+    if textai.api_base == "":
+        textai.api_base = "https://ai.pgpt.cloud"
+
     url = f"{textai.api_base}/v1/translate/"
     headers = {
         "Content-Type": "application/json",

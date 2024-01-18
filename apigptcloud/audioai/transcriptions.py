@@ -3,8 +3,10 @@ import requests
 
 
 def create(model: str, file, lang: str):
-    """
-    """
+
+    if audioai.api_base == "":
+        audioai.api_base = "https://ai.pgpt.cloud"
+
     url = f'{audioai.api_base}/v1/speech/speech2text'
     headers = {
         'accept': 'application/json',

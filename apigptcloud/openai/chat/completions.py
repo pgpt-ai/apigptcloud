@@ -8,6 +8,10 @@ supported_models = [
 
 
 def create(model: str, messages: list, **kwargs):
+
+    if openai.api_base == "":
+        openai.api_base = "https://openai.pgpt.cloud/v1"
+
     url = openai.api_base + "/chat/completions"
     headers = {
         'Content-Type': 'application/json',

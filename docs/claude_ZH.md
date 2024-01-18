@@ -6,7 +6,7 @@ from apigptcloud import claude
 claude.api_key = ""
 claude.api_base = ""
 ```
-如果`claude.api_base`为空，则默认使用[pgpt.cloud](https://pgpt.cloud)端点，请将相应的API Key填入`claude.api_key`。
+如果不声明`claude.api_base`，则默认使用[pgpt.cloud](https://pgpt.cloud)端点，请将相应的API Key填入`claude.api_key`。
 
 ## Completion
 请求示例：

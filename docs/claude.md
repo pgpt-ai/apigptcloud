@@ -6,7 +6,7 @@ from apigptcloud import claude
 claude.api_key = ""
 claude.api_base = ""
 ```
-If `claude.api_base` is empty, the default endpoint [pgpt.cloud](https://pgpt.cloud) will be used. Please fill in the corresponding API Key in `claude.api_key`.
+If `claude.api_base` is not specified, the default endpoint [pgpt.cloud](https://pgpt.cloud) will be used. Please fill in the corresponding API Key in `claude.api_key`.
 
 ## Completion
 Request example:
