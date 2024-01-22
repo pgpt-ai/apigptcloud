@@ -5,7 +5,7 @@ import apigptcloud
 api_key: str = ""
 
 models = {
-    "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct'],
+    "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct', 'gpt-4-turbo-vision'],
     "openai-embeddings": ['text-embedding-ada-002'],
     "claude-completions": ['claude-1'],
     "stablediffusion": ["stablediffusion"],
@@ -20,7 +20,7 @@ reverse_models = {v: k for k, values in models.items() for v in values}
 
 def create(model: str, **kwargs):
     key = reverse_models[model]
-    print("Now using "+key)
+    # print("Now using "+key)
     if key == "openai-chat":
         apigptcloud.openai.api_key = api_key
         try:
