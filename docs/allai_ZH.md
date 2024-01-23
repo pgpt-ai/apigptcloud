@@ -11,9 +11,9 @@ allai.api_key = ""
 通过输入模型的名称选择对应的服务，如下所示：
 ```json
 {
-    "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct'],
-    "openai-embeddings": ['text-embedding-ada-002'],
-    "claude-completions": ['claude-1'],
+    "openai-chat": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4", "gpt-4-32k", "gpt-4-turbo", "gpt-3.5-turbo-instruct"],
+    "openai-embeddings": ["text-embedding-ada-002"],
+    "claude-completions": ["claude-1"],
     "stablediffusion": ["stablediffusion"],
     "audioai-speech": ["audioai-speech"],
     "audioai-transcriptions": ["audioai-transcriptions"],
@@ -34,3 +34,17 @@ res = allai.create(
 )
 ```
 此时函数会自动调用`apigptcloud.openai.chat.completions.create()`
+
+返回示例：
+```json
+{
+    "status": 200,
+    "msg": "success",
+    "data": {
+        "id": ,
+        "model_type": ,
+        "model": ,
+        "messages": ,
+    }
+}
+```

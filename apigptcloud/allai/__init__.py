@@ -1,4 +1,5 @@
 import requests
+import json
 import apigptcloud
 
 
@@ -19,14 +20,40 @@ reverse_models = {v: k for k, values in models.items() for v in values}
 
 
 def create(model: str, **kwargs):
-    key = reverse_models[model]
+
+    # 检查模型名称是否存在
+    # Check if model exists
+    try:
+        key = reverse_models[model]
+    except KeyError as e:
+        return {
+            "status": 400,
+            "msg": "Model not found",
+        }
     # print("Now using "+key)
+
     if key == "openai-chat":
         apigptcloud.openai.api_key = api_key
+        response_old = apigptcloud.openai.chat.completions.create(model, **kwargs)
         try:
-            return apigptcloud.openai.chat.completions.create(model, **kwargs)
+            response_new: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "id": response_old["id"],
+                    "model_type": response_old["object"],
+                    "model": response_old["model"],
+                    "messages": response_old["choices"][0]["message"]["content"],
+                }
+            }
+            return response_new
+
         except Exception as e:
-            return apigptcloud.openai.chat.completions.create(model, **kwargs)
+            response_new: dict = {
+                "status": 400,
+                "msg": json.loads(response_old["error"]["message"]),
+            }
+            return response_new
 
     elif key == "openai-embeddings":
         apigptcloud.openai.api_key = api_key
@@ -38,9 +65,24 @@ def create(model: str, **kwargs):
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
         try:
-            return apigptcloud.claude.completions.create(model, **kwargs)
+            response_old = apigptcloud.claude.completions.create(model, **kwargs)
+            response_new: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "id": response_old["id"],
+                    "model_type": response_old["type"],
+                    "model": response_old["model"],
+                    "messages": response_old["completion"],
+                }
+            }
+            return response_new
         except Exception as e:
-            return apigptcloud.claude.completions.create(model, **kwargs)
+            response_new: dict = {
+                "status": 400,
+                "msg": e,
+            }
+            return response_new
 
     elif key == "stablediffusion":
         apigptcloud.stablediffusion.api_key = api_key
