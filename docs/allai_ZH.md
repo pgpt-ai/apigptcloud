@@ -21,7 +21,7 @@ allai.api_key = ""
 }
 ```
 
-## Chat
+## 通用请求
 请求示例：  
 ```python
 res = allai.create(
@@ -33,18 +33,24 @@ res = allai.create(
     stream=False,
 )
 ```
-此时函数会自动调用`apigptcloud.openai.chat.completions.create()`
 
-返回示例：
+返回示例（成功）：
 ```json
 {
     "status": 200,
     "msg": "success",
     "data": {
-        "id": ,
-        "model_type": ,
-        "model": ,
-        "messages": ,
+        "id": "chatcmpl-8k1R63z46orIg2xSlTGRuzQ7FqPDq",
+        "model_type": "chat.completion",
+        "model": "gpt-3.5-turbo",
+        "messages": "Hello! How can I assist you today?"
     }
+}
+```
+返回示例（失败）：
+```json
+{
+    "status": 400,
+    "msg": {...}
 }
 ```
