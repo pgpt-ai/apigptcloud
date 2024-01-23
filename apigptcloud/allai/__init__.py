@@ -32,10 +32,10 @@ def create(model: str, **kwargs):
     # print("Now using "+key)
 
     if key == "openai-chat":
+        apigptcloud.openai.api_key = api_key
         # 如果不是流式请求
         # If not stream request
         if not kwargs.get("stream", False):
-            apigptcloud.openai.api_key = api_key
             response_old = apigptcloud.openai.chat.completions.create(model, **kwargs)
             try:
                 response_new: dict = {
@@ -86,26 +86,55 @@ def create(model: str, **kwargs):
 
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
-        response_old = apigptcloud.claude.completions.create(model, **kwargs)
-        try:
-            response_new: dict = {
-                "status": 200,
-                "msg": "success",
-                "data": {
-                    "id": response_old["id"],
-                    "model_type": response_old["type"],
-                    "model": response_old["model"],
-                    "messages": response_old["completion"],
+        # 如果不是流式请求
+        # If not stream request
+        if not kwargs.get("stream", False):
+            response_old = apigptcloud.claude.completions.create(model, **kwargs)
+            try:
+                response_new: dict = {
+                    "status": 200,
+                    "msg": "success",
+                    "data": {
+                        "id": response_old["id"],
+                        "model_type": response_old["type"],
+                        "model": response_old["model"],
+                        "messages": response_old["completion"],
+                    }
                 }
-            }
-            return response_new
-        except Exception as e:
-            print(response_old)
-            response_new: dict = {
-                "status": 400,
-                "msg": response_old,
-            }
-            return response_new
+                return response_new
+            except Exception as e:
+                print(response_old)
+                response_new: dict = {
+                    "status": 400,
+                    "msg": response_old,
+                }
+                return response_new
+        else:
+            response_old = apigptcloud.claude.completions.create(model, **kwargs)
+            def process():
+                for i in response_old:
+                    print(i)
+                    if "data" in i:
+                        data = json.loads(i.split("data: ")[-1])
+                        if not data["type"] == "ping":
+                            response_new: dict = {
+                                "status": 200,
+                                "msg": "success",
+                                "data": {
+                                    "model_type": data["type"],
+                                    "model": data["model"],
+                                    "messages": data["completion"],
+                                }
+                            }
+                            yield response_new
+                    elif "value_error.missing" in i:
+                        response_new: dict = {
+                            "status": 400,
+                            "msg": json.loads(i),
+                        }
+                        yield response_new
+            result = process()
+            return result
 
     elif key == "stablediffusion":
         apigptcloud.stablediffusion.api_key = api_key
