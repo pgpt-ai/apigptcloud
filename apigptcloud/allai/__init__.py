@@ -57,24 +57,33 @@ def create(model: str, **kwargs):
                 }
                 return response_new
 
+        # 如果是流式请求
+        # If stream request
         else:
-            # print("6")
             response_old = apigptcloud.openai.chat.completions.create(model, **kwargs)
             def process():
                 for i in response_old:
                     # print(i)
-                    messages = i["choices"][0] if i["choices"] else None
-                    messages = messages["delta"] if messages else None
-                    response_new: dict = {
-                        "status": 200,
-                        "msg": "success",
-                        "data": {
-                            "model_type": i["object"],
-                            "model": i["model"],
-                            "messages": messages,
+                    try:
+                        messages = i["choices"][0] if i["choices"] else None
+                        messages = messages["delta"] if messages else None
+                        messages = messages.get("content", None) if messages else None
+                        response_new: dict = {
+                            "status": 200,
+                            "msg": "success",
+                            "data": {
+                                "model_type": i["object"],
+                                "model": i["model"],
+                                "messages": messages,
+                            }
                         }
-                    }
-                    yield response_new
+                        yield response_new
+                    except TypeError as e:
+                        response_new: dict = {
+                            "status": 400,
+                            "msg": str(i),
+                        }
+                        yield response_new
             return process()
 
     elif key == "openai-embeddings":
@@ -109,11 +118,14 @@ def create(model: str, **kwargs):
                     "msg": response_old,
                 }
                 return response_new
+
+        # 如果是流式请求
+        # If stream request
         else:
             response_old = apigptcloud.claude.completions.create(model, **kwargs)
             def process():
                 for i in response_old:
-                    print(i)
+                    # print(i)
                     if "data" in i:
                         data = json.loads(i.split("data: ")[-1])
                         if not data["type"] == "ping":
@@ -130,7 +142,7 @@ def create(model: str, **kwargs):
                     elif "value_error.missing" in i:
                         response_new: dict = {
                             "status": 400,
-                            "msg": json.loads(i),
+                            "msg": i,
                         }
                         yield response_new
             result = process()

@@ -37,9 +37,12 @@ def create(model: str, messages: list, **kwargs):
                         parse = chunk.decode('utf-8').split('data: ')[-1]
                         if parse == "[DONE]":
                             break
-                        answer = json.loads(parse)
-                        if len(answer) > 0:
-                            yield answer
+                        try:
+                            answer = json.loads(parse)
+                            if len(answer) > 0:
+                                yield answer
+                        except Exception as e:
+                            yield parse
             return process()
             # return response
         else:

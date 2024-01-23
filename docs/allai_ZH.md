@@ -21,7 +21,7 @@ allai.api_key = ""
 }
 ```
 
-## 通用请求
+## 一般请求
 请求示例：  
 ```python
 res = allai.create(
@@ -52,5 +52,24 @@ res = allai.create(
 {
     "status": 400,
     "msg": {...}
+}
+```
+
+## 流式请求
+返回示例（成功）：
+```json
+{
+  "status": 200, 
+  "msg": "success", 
+  "data": {
+    "model_type": "chat.completion.chunk", "model": "gpt-35-turbo", "messages": "Hello"
+  }
+}
+```
+返回示例（失败）：
+```json
+{
+  "status": 400, 
+  "msg": "..."
 }
 ```
