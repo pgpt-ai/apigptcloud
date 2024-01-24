@@ -45,7 +45,7 @@ def create(model: str, **kwargs):
                         "id": response_old["id"],
                         "model_type": response_old["object"],
                         "model": response_old["model"],
-                        "messages": response_old["choices"][0]["message"]["content"],
+                        "response": response_old["choices"][0]["message"]["content"],
                     }
                 }
                 return response_new
@@ -74,7 +74,7 @@ def create(model: str, **kwargs):
                             "data": {
                                 "model_type": i["object"],
                                 "model": i["model"],
-                                "messages": messages,
+                                "response": messages,
                             }
                         }
                         yield response_new
@@ -88,10 +88,27 @@ def create(model: str, **kwargs):
 
     elif key == "openai-embeddings":
         apigptcloud.openai.api_key = api_key
+        response = apigptcloud.openai.embeddings.create(model, **kwargs)
+        # print(response)
         try:
-            return apigptcloud.openai.embeddings.create(model, **kwargs)
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": response["data"][0]["object"],
+                    "model": response["model"],
+                    "response": response["data"][0]["embedding"],
+                }
+            }
+            return new_response
+
         except Exception as e:
-            return apigptcloud.openai.embeddings.create(model, **kwargs)
+            # print(e)
+            new_response: dict = {
+                "status": 400,
+                "msg": response,
+            }
+            return new_response
 
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
@@ -107,7 +124,7 @@ def create(model: str, **kwargs):
                         "id": response_old["id"],
                         "model_type": response_old["type"],
                         "model": response_old["model"],
-                        "messages": response_old["completion"],
+                        "response": response_old["completion"],
                     }
                 }
                 return response_new
@@ -135,7 +152,7 @@ def create(model: str, **kwargs):
                                 "data": {
                                     "model_type": data["type"],
                                     "model": data["model"],
-                                    "messages": data["completion"],
+                                    "response": data["completion"],
                                 }
                             }
                             yield response_new
@@ -148,6 +165,7 @@ def create(model: str, **kwargs):
             result = process()
             return result
 
+    # TODO: No server available
     elif key == "stablediffusion":
         apigptcloud.stablediffusion.api_key = api_key
         try:
@@ -157,21 +175,74 @@ def create(model: str, **kwargs):
 
     elif key == "audioai-speech":
         apigptcloud.audioai.api_key = api_key
+        response = apigptcloud.audioai.speech.create(model, **kwargs)
         try:
-            return apigptcloud.audioai.speech.create(model, **kwargs)
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": "audioai",
+                    "model": "speech",
+                    "response": response["url"],
+                }
+            }
+            return new_response
         except Exception as e:
-            return apigptcloud.audioai.speech.create(model, **kwargs)
+            # import traceback
+            # print(traceback.format_exc())
+            new_response: dict = {
+                "status": 400,
+                "msg": response["error"]["message"],
+            }
+            return new_response
 
     elif key == "audioai-transcriptions":
         apigptcloud.audioai.api_key = api_key
+        response = apigptcloud.audioai.transcriptions.create(model, **kwargs)
         try:
-            return apigptcloud.audioai.transcriptions.create(model, **kwargs)
+            # print(response)
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": "audioai",
+                    "model": "transcriptions",
+                    "response": response["text"],
+                }
+            }
+            return new_response
         except Exception as e:
-            return apigptcloud.audioai.transcriptions.create(model, **kwargs)
+            new_response: dict = {
+                "status": 400,
+            }
+            if response["msg"] == "Language not supported":
+                new_response["msg"] = response["msg"]
+            else:
+                new_response["msg"] = response
+            return new_response
 
     elif key == "textai":
         apigptcloud.textai.api_key = api_key
+        response = apigptcloud.textai.translations.create(model, **kwargs)
+        print(response)
         try:
-            return apigptcloud.textai.translations.create(model, **kwargs)
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": "textai",
+                    "model": "translations",
+                    "response": response["translations"],
+                }
+            }
+            return new_response
+
         except Exception as e:
-            return apigptcloud.textai.translations.create(model, **kwargs)
+            new_response: dict = {
+                "status": 400,
+            }
+            if "The target language is not valid." in response["error"]["message"]:
+                new_response["msg"] = response["error"]["message"]
+            else:
+                new_response["msg"] = response
+            return new_response
