@@ -27,12 +27,13 @@ Response example:
 
 ## Speech to Text
 Request example:
+
 ```python
 file = open("speech.mp3", "rb")
 res = audioai.transcriptions.create(
   model="model",
   file=file,
-  lang="zh-CN"
+  language="zh-CN"
 )
 ```
 Response example:

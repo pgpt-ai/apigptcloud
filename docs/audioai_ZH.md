@@ -27,12 +27,13 @@ res = audioai.speech.create(
 
 ## 语音转文字
 请求示例：
+
 ```python
 file = open("speech.mp3", "rb")
 res = audioai.transcriptions.create(
-  model="model",
-  file=file,
-  lang="zh-CN"
+    model="model",
+    file=file,
+    language="zh-CN"
 )
 ```
 返回示例：

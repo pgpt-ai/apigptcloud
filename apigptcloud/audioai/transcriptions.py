@@ -2,7 +2,7 @@ from apigptcloud import audioai
 import requests
 
 
-def create(model: str, file, lang: str):
+def create(model: str, file, language: str):
 
     if audioai.api_base == "":
         audioai.api_base = "https://ai.pgpt.cloud"
@@ -13,14 +13,17 @@ def create(model: str, file, lang: str):
         "Authorization": f"Bearer {audioai.api_key}"
     }
     data = {
-        'lang': lang,
+        'lang': language,
     }
     files = [
         ('audio', ("file", file, "audio/"+file.name.split(".")[-1])),
     ]
-    if lang == "zh-CN":
+    if language == "zh-CN":
         return requests.request("POST", url, headers=headers, params=data, files=files).json()
-    elif lang == "en-US":
+    elif language == "en-US":
         return requests.request("POST", url, headers=headers, data=data, files=files).json()
     else:
-        raise Exception("Language not supported")
+        return {
+            "status": 400,
+            "msg": "Language not supported",
+        }
