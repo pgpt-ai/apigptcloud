@@ -3,7 +3,7 @@ from apigptcloud import chatglm
 import json
 
 
-def create(messages: list, **kwargs):
+def create(model: str, messages: list, **kwargs):
     url = chatglm.api_base
     headers = {
         'Content-Type': 'application/json',

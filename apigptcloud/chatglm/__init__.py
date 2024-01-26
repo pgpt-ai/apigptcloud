@@ -1,5 +1,5 @@
 from . import (
-    ChatCompletion,
+    completions,
 )
 
 api_key: str = ""

@@ -1,4 +1,3 @@
-import requests
 import json
 import apigptcloud
 
@@ -8,6 +7,7 @@ models = {
     "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct',
                     'gpt-4-turbo-vision'],
     "openai-embeddings": ['text-embedding-ada-002'],
+    "chatglm": ['chatglm'],
     "claude-completions": ['claude-1'],
     "stablediffusion": ["stablediffusion"],
     "audioai-speech": ["audioai-speech"],
@@ -42,7 +42,7 @@ def create(model: str, **kwargs):
                     "status": 200,
                     "msg": "success",
                     "data": {
-                        "id": response_old["id"],
+                        # "id": response_old["id"],
                         "model_type": response_old["object"],
                         "model": response_old["model"],
                         "response": response_old["choices"][0]["message"]["content"],
@@ -110,6 +110,30 @@ def create(model: str, **kwargs):
             }
             return new_response
 
+    # 警告：未经测试，目前沿用上方openai-chat的逻辑
+    # Warning: Not tested, currently using the logic of openai-chat above
+    elif key == "chatglm":
+        apigptcloud.chatglm.api_key = api_key
+        response = apigptcloud.chatglm.completions.create(model, **kwargs)
+        try:
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": response["object"],
+                    "model": response["model"],
+                    "response": response["choices"][0]["message"]["content"],
+                }
+            }
+            return new_response
+
+        except Exception as e:
+            new_response: dict = {
+                "status": 400,
+                "msg": response,
+            }
+            return new_response
+
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
         # 如果不是流式请求
@@ -121,7 +145,7 @@ def create(model: str, **kwargs):
                     "status": 200,
                     "msg": "success",
                     "data": {
-                        "id": response_old["id"],
+                        # "id": response_old["id"],
                         "model_type": response_old["type"],
                         "model": response_old["model"],
                         "response": response_old["completion"],
@@ -165,13 +189,28 @@ def create(model: str, **kwargs):
             result = process()
             return result
 
-    # TODO: No server available
+    # 警告：未经测试
+    # Warning: Not tested
     elif key == "stablediffusion":
         apigptcloud.stablediffusion.api_key = api_key
+        response = apigptcloud.stablediffusion.draw.create(model, **kwargs)
         try:
-            return apigptcloud.stablediffusion.draw.create(**kwargs)
+            new_response: dict = {
+                "status": 200,
+                "msg": "success",
+                "data": {
+                    "model_type": response["object"],
+                    "model": response["model"],
+                    "response": response["urls"],
+                }
+            }
+            return new_response
         except Exception as e:
-            return apigptcloud.stablediffusion.draw.create(**kwargs)
+            new_response: dict = {
+                "status": 400,
+                "msg": response,
+            }
+            return new_response
 
     elif key == "audioai-speech":
         apigptcloud.audioai.api_key = api_key
