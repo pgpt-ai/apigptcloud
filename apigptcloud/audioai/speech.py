@@ -20,6 +20,9 @@ def create(model: str, voice: str, input: str):
 
 
 def list():
+    """
+    该函数用于获取支持的语言列表
+    """
     url = f'{audioai.api_base}/v1/speech/text2speech/voices'
     headers = {
         'accept': 'application/json',

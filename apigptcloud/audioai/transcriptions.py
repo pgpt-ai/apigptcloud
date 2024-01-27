@@ -18,6 +18,8 @@ def create(model: str, file, language: str):
     files = [
         ('audio', ("file", file, "audio/"+file.name.split(".")[-1])),
     ]
+
+    # 因不同语言的接口参数不同，故此处需做判断
     if language == "zh-CN":
         return requests.request("POST", url, headers=headers, params=data, files=files).json()
     elif language == "en-US":

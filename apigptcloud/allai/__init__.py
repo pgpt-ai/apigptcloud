@@ -3,6 +3,7 @@ import apigptcloud
 
 api_key: str = ""
 
+# 该字典将模型名称映射到对应的服务
 models = {
     "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct',
                     'gpt-4-turbo-vision'],
@@ -16,10 +17,15 @@ models = {
 
 }
 
+# 该字典将服务名称映射回模型名称。
 reverse_models = {v: k for k, values in models.items() for v in values}
 
 
 def create(model: str, **kwargs):
+    """
+    该函数将根据传入的模型名称，调用对应的服务
+    """
+
     # 检查模型名称是否存在
     # Check if model exists
     try:
@@ -136,6 +142,7 @@ def create(model: str, **kwargs):
 
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
+
         # 如果不是流式请求
         # If not stream request
         if not kwargs.get("stream", False):

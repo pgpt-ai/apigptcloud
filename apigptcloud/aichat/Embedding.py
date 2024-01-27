@@ -1,7 +1,10 @@
 import requests
 from apigptcloud import aichat
-import json
 import os
+
+"""
+该模块主要用于处理不同类型的文件并获取其 embeddings 。
+"""
 
 
 def pdf(file_path: str):

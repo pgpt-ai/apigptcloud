@@ -20,6 +20,10 @@ def create(model: str, language: list, text: str):
 
 
 def list():
+    """
+    该函数用于获取支持的语言列表
+    """
+
     url = f"{textai.api_base}/v1/language/"
     headers = {
         "Content-Type": "application/json",
