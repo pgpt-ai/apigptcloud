@@ -2,6 +2,7 @@ import json
 import apigptcloud
 
 api_key: str = ""
+api_base = ""
 
 # 该字典将模型名称映射到对应的服务
 models = {
@@ -39,6 +40,9 @@ def create(model: str, **kwargs):
 
     if key == "openai-chat":
         apigptcloud.openai.api_key = api_key
+        if api_base:
+            apigptcloud.openai.api_base = api_base
+
         # 如果不是流式请求
         # If not stream request
         if not kwargs.get("stream", False):
@@ -70,6 +74,7 @@ def create(model: str, **kwargs):
             def process():
                 for i in response_old:
                     # print(i)
+                    i = json.loads(i)
                     try:
                         messages = i["choices"][0] if i["choices"] else None
                         messages = messages["delta"] if messages else None
@@ -83,17 +88,22 @@ def create(model: str, **kwargs):
                                 "response": messages,
                             }
                         }
-                        yield response_new
+                        yield json.dumps(response_new)
+
                     except TypeError as e:
                         response_new: dict = {
                             "status": 400,
                             "msg": str(i),
                         }
-                        yield response_new
+                        yield json.dumps(response_new)
+
             return process()
 
     elif key == "openai-embeddings":
         apigptcloud.openai.api_key = api_key
+        if api_base:
+            apigptcloud.openai.api_base = api_base
+
         response = apigptcloud.openai.embeddings.create(model, **kwargs)
         # print(response)
         try:
@@ -120,6 +130,9 @@ def create(model: str, **kwargs):
     # Warning: Not tested, currently using the logic of openai-chat above
     elif key == "chatglm":
         apigptcloud.chatglm.api_key = api_key
+        if api_base:
+            apigptcloud.chatglm.api_base = api_base
+
         response = apigptcloud.chatglm.completions.create(model, **kwargs)
         try:
             new_response: dict = {
@@ -142,6 +155,8 @@ def create(model: str, **kwargs):
 
     elif key == "claude-completions":
         apigptcloud.claude.api_key = api_key
+        if api_base:
+            apigptcloud.claude.api_base = api_base
 
         # 如果不是流式请求
         # If not stream request
@@ -186,13 +201,15 @@ def create(model: str, **kwargs):
                                     "response": data["completion"],
                                 }
                             }
-                            yield response_new
+                            yield json.dumps(response_new)
+
                     elif "value_error.missing" in i:
                         response_new: dict = {
                             "status": 400,
                             "msg": i,
                         }
-                        yield response_new
+                        yield json.dumps(response_new)
+
             result = process()
             return result
 
@@ -200,6 +217,9 @@ def create(model: str, **kwargs):
     # Warning: Not tested
     elif key == "stablediffusion":
         apigptcloud.stablediffusion.api_key = api_key
+        if api_base:
+            apigptcloud.stablediffusion.api_base = api_base
+
         response = apigptcloud.stablediffusion.draw.create(model, **kwargs)
         try:
             new_response: dict = {
@@ -221,6 +241,9 @@ def create(model: str, **kwargs):
 
     elif key == "audioai-speech":
         apigptcloud.audioai.api_key = api_key
+        if api_base:
+            apigptcloud.audioai.api_base = api_base
+
         response = apigptcloud.audioai.speech.create(model, **kwargs)
         try:
             new_response: dict = {
@@ -244,6 +267,9 @@ def create(model: str, **kwargs):
 
     elif key == "audioai-transcriptions":
         apigptcloud.audioai.api_key = api_key
+        if api_base:
+            apigptcloud.audioai.api_base = api_base
+
         response = apigptcloud.audioai.transcriptions.create(model, **kwargs)
         try:
             # print(response)
@@ -269,6 +295,9 @@ def create(model: str, **kwargs):
 
     elif key == "textai":
         apigptcloud.textai.api_key = api_key
+        if api_base:
+            apigptcloud.textai.api_base = api_base
+
         response = apigptcloud.textai.translations.create(model, **kwargs)
         print(response)
         try:
