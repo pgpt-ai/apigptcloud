@@ -146,6 +146,13 @@ class Completions:
             apigptcloud.openai.api_base = base_url
         dall_model = model
         prompt = ''
+        content = messages[-1].get('content', '')
+        if isinstance(content, str):
+            prompt = content
+        elif isinstance(content, list):
+            for item in content:
+                if item.get('type') == 'text':
+                    prompt = item.get('text', '')
         if 'ultra' in model:
             response = apigptcloud.openai.chat.completions.create(
                 model=model.replace('ultra', 'turbo'),
@@ -171,16 +178,9 @@ class Completions:
             if res_function_call:
                 arguments = res_function_call.get('arguments')
                 arguments = json.loads(arguments)
-                prompt = generate_image_prompt(arguments)
-                dall_model = 'dall-e-2'
-        else:
-            content = messages[-1].get('content', '')
-            if isinstance(content, str):
-                prompt = content
-            elif isinstance(content, list):
-                for item in content:
-                    if item.get('type') == 'text':
-                        prompt = item.get('text', '')
+                prompt = generate_image_prompt(arguments, prompt)
+                dall_model = 'dall-e-3'
+
         response = apigptcloud.openai.images.create(
             model=dall_model,
             prompt=prompt
