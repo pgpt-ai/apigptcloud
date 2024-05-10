@@ -1,6 +1,7 @@
 from . import (
     embeddings,
-    chat
+    chat,
+    images
 )
 
 api_key: str = ""

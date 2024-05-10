@@ -5,9 +5,9 @@ from apigptcloud import claude
 def create(model: str, prompt: str, **kwargs):
 
     if claude.api_base == "":
-        claude.api_base = "https://claude.pgpt.cloud/v1/"
+        claude.api_base = "https://claude.pgpt.cloud/v1"
 
-    url = claude.api_base + "complete"
+    url = claude.api_base + "/complete"
     headers = {
         'Content-Type': 'application/json',
         'x-api-key': claude.api_key

@@ -1,30 +1,49 @@
 # AllAI 调用方法
 
 ## 配置环境
-请在`allai.api_key`中填入**相对应服务**的API Key
+请在`AllAI()`中填入**相对应服务**的API Key
 ```python
-from apigptcloud import allai
-allai.api_key = ""
+from apigptcloud import AllAI
+client = AllAI(api_key='<YOUR API KEY>')
 ```
 
 ## 模型列表
-通过输入模型的名称选择对应的服务，如下所示：
-```json
-{
-    "openai-chat": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4", "gpt-4-32k", "gpt-4-turbo", "gpt-3.5-turbo-instruct"],
-    "openai-embeddings": ["text-embedding-ada-002"],
-    "claude-completions": ["claude-1"],
-    "stablediffusion": ["stablediffusion"],
-    "audioai-speech": ["audioai-speech"],
-    "audioai-transcriptions": ["audioai-transcriptions"],
-    "textai": ["textai"]
-}
-```
+通过输入模型的名称选择对应的服务，支持的模型如下：
+
+### OpenAI
+- gpt-3.5-turbo
+- gpt-3.5-turbo-16k
+- gpt-4
+- gpt-4-32k
+- gpt-4-turbo
+- gpt-4-turbo-vision
+- dall-e-2
+- dall-e-3
+
+### Claude
+- claude-instant-1.2
+- claude-2
+- claude-3
+
+### Gemini
+- gemini-pro
+- gemini-pro-vision
+
+### stable Diffusion
+- stable_diffusion
+
+### ChatGLM
+- chatglm2
+- chatglm3
+
 
 ## 一般请求
 请求示例：  
 ```python
-res = allai.create(
+from apigptcloud import AllAI
+client = AllAI(api_key='<YOUR API KEY>')
+
+res = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
@@ -38,12 +57,13 @@ res = allai.create(
 ```json
 {
     "status": 200,
-    "msg": "success",
+    "msg": "succeed",
     "data": {
-        "id": "chatcmpl-8k1R63z46orIg2xSlTGRuzQ7FqPDq",
         "model_type": "chat.completion",
         "model": "gpt-3.5-turbo",
-        "messages": "Hello! How can I assist you today?"
+        "response": {
+          "text": "Hello! How can I assist you today?"
+        } 
     }
 }
 ```
@@ -51,7 +71,11 @@ res = allai.create(
 ```json
 {
     "status": 400,
-    "msg": {...}
+    "error": {
+        "code": "",
+        "message": ""
+    },
+    "msg": "failed"
 }
 ```
 
@@ -62,7 +86,7 @@ res = allai.create(
   "status": 200, 
   "msg": "success", 
   "data": {
-    "model_type": "chat.completion.chunk", "model": "gpt-35-turbo", "messages": "Hello"
+    "model_type": "chat.completion.chunk", "model": "gpt-35-turbo", "response": {"text": "hello"}
   }
 }
 ```

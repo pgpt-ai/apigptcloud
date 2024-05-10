@@ -3,7 +3,7 @@ from apigptcloud import stablediffusion
 import json
 
 
-def create(prompt: str, quantity: int, size: str, **kwargs):
+def create(prompt: str, quantity: int = 1, size: str = "16:9", **kwargs):
     url = stablediffusion.api_base
     headers = {
         'accept': 'application/json',
@@ -16,4 +16,4 @@ def create(prompt: str, quantity: int, size: str, **kwargs):
     }
     for arg in kwargs:
         data[arg] = kwargs[arg]
-    return requests.post(url, headers=headers, json=data).json()
+    return requests.post(url + '/draw', headers=headers, json=data).json()
