@@ -9,7 +9,7 @@ import apigptcloud
 
 __all__ = ['Completions']
 
-from apigptcloud.allai.utils.functions import extract_image_generation_keywords
+from apigptcloud.allai.utils.functions import extract_image_generation_keywords, generate_image_prompt
 
 
 class Completions:
@@ -171,9 +171,8 @@ class Completions:
             if res_function_call:
                 arguments = res_function_call.get('arguments')
                 arguments = json.loads(arguments)
-                prompt = (f"A drawing of {arguments.get('subject')}. The {arguments.get('subject')} "
-                          f"is {arguments.get('adjectives')}")
-                dall_model = 'dall-e-3'
+                prompt = generate_image_prompt(arguments)
+                dall_model = 'dall-e-2'
         else:
             content = messages[-1].get('content', '')
             if isinstance(content, str):
@@ -188,6 +187,7 @@ class Completions:
         )
         if response.get('data'):
             succeed_res['data']['response'] = {
+                'text': 'Based on your description, the following image is generated for you.',
                 "images": response.get('data', [])
             }
             return succeed_res

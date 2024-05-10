@@ -17,7 +17,27 @@ def extract_image_generation_keywords():
                     "type": "string",
                     "description": "The main object or scene to be drawn (e.g., cat, landscape, portrait)"
                 },
+                "setting": {
+                    "type": "string",
+                    "description": "The place where the subject should be drawn (e.g, lake, street or building)"
+                },
+                "action": {
+                    "type": "string",
+                    "description": "An action word that describes what subject is doing (e.g., swim, run)"
+                }
             },
             "required": ["adjectives", "subject"]
         }
     }
+
+
+def generate_image_prompt(arguments, message):
+    prompt = f"Generate a picture about {arguments.get('subject')}. The prompt is {message}"
+    # if arguments.get('adjectives'):
+    #     prompt += f"Adjectives about {arguments.get('subject')} are as follows: {arguments.get('adjectives')}."
+    # if arguments.get('setting'):
+    #     prompt += f"The place where {arguments.get('subject')} is located is the {arguments.get('setting')}."
+    # if arguments.get('action'):
+    #     prompt += f"The actions the {arguments.get('subject')} is performing are as follows: {arguments.get('action')}."
+    prompt += 'Make it more vivid based on your understanding.'
+    return prompt
