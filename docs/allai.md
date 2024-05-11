@@ -1,30 +1,46 @@
 # AllAI Usage
 
 ## Config
-Please fill in the API Key of the corresponding service in `allai.api_key`
+Please fill in the API Key of the corresponding service in `AllAI()`
 ```python
-from apigptcloud import allai
-allai.api_key = ""
+from apigptcloud import AllAI
+client = AllAI(api_key='<YOUR API KEY>')
 ```
 
 ## Model List
 Select the corresponding service by entering the name of the model, as shown below:
-```json
-{
-    "openai-chat": ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct'],
-    "openai-embeddings": ['text-embedding-ada-002'],
-    "claude-completions": ['claude-1'],
-    "stablediffusion": ["stablediffusion"],
-    "audioai-speech": ["audioai-speech"],
-    "audioai-transcriptions": ["audioai-transcriptions"],
-    "textai": ["textai"]
-}
-```
+### OpenAI
+- gpt-3.5-turbo
+- gpt-3.5-turbo-16k
+- gpt-4
+- gpt-4-32k
+- gpt-4-turbo
+- gpt-4-turbo-vision
+- dall-e-2
+- dall-e-3
+
+### Claude
+- claude-instant-1.2
+- claude-2
+- claude-3
+
+### Gemini
+- gemini-pro
+- gemini-pro-vision
+
+### stabled Diffusion
+- stable_diffusion
+
+### ChatGLM
+- chatglm2
+- chatglm3
 
 ## Chat
 Request example:
 ```python
-res = allai.create(
+from apigptcloud import AllAI
+client = AllAI(api_key='<YOUR API KEY>')
+res = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},

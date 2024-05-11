@@ -10,7 +10,7 @@ chatglm.api_base = ""
 ## ChatCompletion
 请求示例：
 ```python
-res = chatglm.ChatCompletion.create(
+res = chatglm.completions.create(
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Hello!"}

@@ -18,6 +18,7 @@ pip install apigptcloud
 * [Claude](docs/claude_ZH.md)
 * [ChatGLM2](docs/chatglm_ZH.md)
 * [Stable Diffusion](docs/stablediffusion_ZH.md)
+* [GeminiAI](docs/geminiai_ZH.md)
 
 或者，使用我们的集成接口：
 * [AllAI](docs/allai_ZH.md)

@@ -3,5 +3,5 @@ from . import (
 )
 
 api_key: str = ""
-api_base: str = "https://sd.pgpt.cloud/v1/draw"
+api_base: str = "https://sd.pgpt.cloud/v1"
 

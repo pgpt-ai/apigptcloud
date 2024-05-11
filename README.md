@@ -17,6 +17,7 @@ For now, we support the following AIGC providers' APIs, click to see their usage
 * [Claude](docs/claude.md)
 * [ChatGLM2](docs/chatglm.md)
 * [Stable Diffusion](docs/stablediffusion.md)
+* [GeminiAI](docs/geminiai.md)
 
 Or, use our integrated API:
 * [AllAI](docs/allai.md)

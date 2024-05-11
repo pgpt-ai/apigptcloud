@@ -6,5 +6,7 @@ from . import (
     stablediffusion,
     audioai,
     textai,
-    allai,
+    geminiai
 )
+
+from .allai import AllAI
