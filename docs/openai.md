@@ -1,8 +1,10 @@
 # OpenAI API Usage
 
 ## Config
+
 ```python
-from apigptcloud import openai
+from pgpt import openai
+
 openai.api_key = ""
 openai.api_base = ""
 ```
