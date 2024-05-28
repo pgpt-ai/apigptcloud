@@ -1,10 +1,8 @@
 # Stable Diffusion API 调用方法
 
 ## 配置环境
-
 ```python
-from pgpt import stablediffusion
-
+from apigptcloud import stablediffusion
 stablediffusion.api_key = ""
 stablediffusion.api_base = ""
 ```

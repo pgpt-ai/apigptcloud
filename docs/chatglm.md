@@ -1,10 +1,8 @@
 # ChatGLM API Usage
 
 ## Config
-
 ```python
-from pgpt import chatglm
-
+from apigptcloud import chatglm
 chatglm.api_key = ""
 chatglm.api_base = ""
 ```

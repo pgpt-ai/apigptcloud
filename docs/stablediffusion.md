@@ -1,10 +1,8 @@
 # Stable Diffusion API Usage
 
 ## Config
-
 ```python
-from pgpt import stablediffusion
-
+from apigptcloud import stablediffusion
 stablediffusion.api_key = ""
 stablediffusion.api_base = ""
 ```

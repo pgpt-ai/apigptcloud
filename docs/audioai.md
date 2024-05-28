@@ -1,10 +1,8 @@
 # AudioAI Usage
 
 ## Config
-
 ```python
-from pgpt import audioai
-
+from apigptcloud import audioai
 audioai.api_key = ""
 ```
 

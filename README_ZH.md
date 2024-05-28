@@ -1,4 +1,4 @@
-# PGPT
+# apigptcloud
 
 专为Python提供的一站式AIGC接口集成包。有关我们的其他服务，欢迎访问我们的官网[apigpt.cloud](https://apigpt.cloud/)。
 
@@ -9,7 +9,7 @@ apigptcloud旨在简化调用难度的同时，提供与原AIGC提供商一致�
 
 ## 安装
 ```bash
-pip install pgpt
+pip install apigptcloud
 ```
 
 ## 使用方法
