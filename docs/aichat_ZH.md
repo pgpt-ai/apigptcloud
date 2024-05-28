@@ -1,11 +1,13 @@
 # AIChat API 调用方法
 
 ## 准备
-前往[apigpt.cloud](https://apigpt.cloud/)注册账号，获取api_key。
+前往[pgpt.cloud](https://user.pgpt.cloud/login/)注册账号，获取api_key。
 
 ## 配置环境
+
 ```python
-from apigptcloud import aichat
+from pgpt import aichat
+
 aichat.api_key = ""
 ```
 

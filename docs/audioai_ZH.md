@@ -1,8 +1,10 @@
 # AudioAI 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import audioai
+from pgpt import audioai
+
 audioai.api_key = ""
 ```
 

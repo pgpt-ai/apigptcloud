@@ -2,8 +2,10 @@
 
 ## Config
 Please fill in the API Key of the corresponding service in `AllAI()`
+
 ```python
-from apigptcloud import AllAI
+from pgpt import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 ```
 
@@ -37,8 +39,10 @@ Select the corresponding service by entering the name of the model, as shown bel
 
 ## Chat
 Request example:
+
 ```python
-from apigptcloud import AllAI
+from pgpt import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 res = client.chat.completions.create(
     model="gpt-3.5-turbo",
