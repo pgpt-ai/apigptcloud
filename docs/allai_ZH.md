@@ -2,10 +2,8 @@
 
 ## 配置环境
 请在`AllAI()`中填入**相对应服务**的API Key
-
 ```python
-from pgpt import AllAI
-
+from apigptcloud import AllAI
 client = AllAI(api_key='<YOUR API KEY>')
 ```
 
@@ -40,11 +38,9 @@ client = AllAI(api_key='<YOUR API KEY>')
 
 
 ## 一般请求
-请求示例：
-
+请求示例：  
 ```python
-from pgpt import AllAI
-
+from apigptcloud import AllAI
 client = AllAI(api_key='<YOUR API KEY>')
 
 res = client.chat.completions.create(

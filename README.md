@@ -1,4 +1,4 @@
-# PGPT
+# apigptcloud
 All-in-one AIGC API package for Python
 
 For more info about our services, please visit our website [apigpt.cloud](https://apigpt.cloud/).
@@ -8,7 +8,7 @@ apigptcloud simplifies the way you use AIGC APIs by putting everything you need 
 
 ## Installation
 ```bash
-pip install pgpt
+pip install apigptcloud
 ```
 
 ## Usage

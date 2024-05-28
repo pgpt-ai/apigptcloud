@@ -1,10 +1,8 @@
 # OpenAI API 调用方法
 
 ## 配置环境
-
 ```python
-from pgpt import openai
-
+from apigptcloud import openai
 openai.api_key = ""
 openai.api_base = ""
 ```

@@ -1,13 +1,11 @@
 # AIChat API Usage
 
 ## Before you start...
-Sign up at [pgpt.cloud](https://user.pgpt.cloud/login/) and get your api_key.
+Sign up at [apigpt.cloud](https://apigpt.cloud/) and get your api_key.
 
 ## Config
-
 ```python
-from pgpt import aichat
-
+from apigptcloud import aichat
 aichat.api_key = ""
 ```
 

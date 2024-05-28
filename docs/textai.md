@@ -1,10 +1,8 @@
 # TextAI Usage
 
 ## Config
-
 ```python
-from pgpt import textai
-
+from apigptcloud import textai
 textai.api_key = ""
 ```
 
