@@ -1,18 +1,18 @@
-# apigptcloud
+# pgptai
 All-in-one AIGC API package for Python
 
 For more info about our services, please visit our website [apigpt.cloud](https://apigpt.cloud/).
 
 ## Intro
-apigptcloud simplifies the way you use AIGC APIs by putting everything you need together while keeping their original usages :)
+pgptai simplifies the way you use AIGC APIs by putting everything you need together while keeping their original usages :)
 
 ## Installation
 ```bash
-pip install apigptcloud
+pip install pgptai
 ```
 
 ## Usage
-For now, we support the following AIGC providers' APIs, click to see their usages in apigptcloud:
+For now, we support the following AIGC providers' APIs, click to see their usages in pgptai:
 * [OpenAI](docs/openai.md)
 * [Claude](docs/claude.md)
 * [ChatGLM2](docs/chatglm.md)

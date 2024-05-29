@@ -1,8 +1,10 @@
 # TextAI 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import textai
+from pgptai import textai
+
 textai.api_key = ""
 ```
 

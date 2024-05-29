@@ -1,8 +1,10 @@
 # GeminiAI API 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import geminiai
+from pgptai import geminiai
+
 geminiai.api_key = ""
 geminiai.api_base = ""
 ```

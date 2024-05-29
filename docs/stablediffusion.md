@@ -1,8 +1,10 @@
 # Stable Diffusion API Usage
 
 ## Config
+
 ```python
-from apigptcloud import stablediffusion
+from pgptai import stablediffusion
+
 stablediffusion.api_key = ""
 stablediffusion.api_base = ""
 ```

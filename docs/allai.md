@@ -2,8 +2,10 @@
 
 ## Config
 Please fill in the API Key of the corresponding service in `AllAI()`
+
 ```python
-from apigptcloud import AllAI
+from pgptai import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 ```
 
@@ -12,10 +14,12 @@ Select the corresponding service by entering the name of the model, as shown bel
 ### OpenAI
 - gpt-3.5-turbo
 - gpt-3.5-turbo-16k
+- gpt-3.5-ultra
 - gpt-4
 - gpt-4-32k
 - gpt-4-turbo
 - gpt-4-turbo-vision
+- gpt-4-ultra
 - dall-e-2
 - dall-e-3
 
@@ -37,8 +41,10 @@ Select the corresponding service by entering the name of the model, as shown bel
 
 ## Chat
 Request example:
+
 ```python
-from apigptcloud import AllAI
+from pgptai import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 res = client.chat.completions.create(
     model="gpt-3.5-turbo",

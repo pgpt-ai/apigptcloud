@@ -4,8 +4,10 @@
 前往[apigpt.cloud](https://apigpt.cloud/)注册账号，获取api_key。
 
 ## 配置环境
+
 ```python
-from apigptcloud import aichat
+from pgptai import aichat
+
 aichat.api_key = ""
 ```
 

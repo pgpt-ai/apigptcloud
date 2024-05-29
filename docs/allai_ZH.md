@@ -2,8 +2,10 @@
 
 ## 配置环境
 请在`AllAI()`中填入**相对应服务**的API Key
+
 ```python
-from apigptcloud import AllAI
+from pgptai import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 ```
 
@@ -13,10 +15,12 @@ client = AllAI(api_key='<YOUR API KEY>')
 ### OpenAI
 - gpt-3.5-turbo
 - gpt-3.5-turbo-16k
+- pgt-3.5-ultra
 - gpt-4
 - gpt-4-32k
 - gpt-4-turbo
 - gpt-4-turbo-vision
+- pgt-4-ultra
 - dall-e-2
 - dall-e-3
 
@@ -38,9 +42,11 @@ client = AllAI(api_key='<YOUR API KEY>')
 
 
 ## 一般请求
-请求示例：  
+请求示例：
+
 ```python
-from apigptcloud import AllAI
+from pgptai import AllAI
+
 client = AllAI(api_key='<YOUR API KEY>')
 
 res = client.chat.completions.create(
