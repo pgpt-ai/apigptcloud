@@ -12,7 +12,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=['requests'],
+    install_requires=['requests', 'typing_extensions'],
     keywords=['python', 'first package'],
     classifiers=[
         "Development Status :: 1 - Planning",
