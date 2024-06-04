@@ -1,8 +1,10 @@
 # Claude API 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import claude
+from pgptai import claude
+
 claude.api_key = ""
 claude.api_base = ""
 ```

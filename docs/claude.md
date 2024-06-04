@@ -1,8 +1,10 @@
 # Claude API Usage
 
 ## Config
+
 ```python
-from apigptcloud import claude
+from pgptai import claude
+
 claude.api_key = ""
 claude.api_base = ""
 ```

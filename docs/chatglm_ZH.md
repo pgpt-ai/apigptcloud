@@ -1,8 +1,10 @@
 # ChatGLM API 调用方法
 
 ## 配置环境
+
 ```python
-from apigptcloud import chatglm
+from pgptai import chatglm
+
 chatglm.api_key = ""
 chatglm.api_base = ""
 ```

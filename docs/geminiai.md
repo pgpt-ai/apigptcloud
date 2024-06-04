@@ -1,8 +1,10 @@
 # GeminiAI API Usage
 
 ## Config
+
 ```python
-from apigptcloud import geminiai
+from pgptai import geminiai
+
 geminiai.api_key = ""
 geminiai.api_base = ""
 ```

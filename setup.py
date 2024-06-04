@@ -5,7 +5,7 @@ DESCRIPTION = 'All in one AIGC API package for Python'
 LONG_DESCRIPTION = 'All in one AIGC API package for Python'
 
 setup(
-    name="apigptcloud",
+    name="pgptai",
     version=VERSION,
     author="gantianyuneil",
     author_email="apigpt@quseit.com",

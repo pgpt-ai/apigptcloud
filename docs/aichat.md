@@ -4,8 +4,10 @@
 Sign up at [apigpt.cloud](https://apigpt.cloud/) and get your api_key.
 
 ## Config
+
 ```python
-from apigptcloud import aichat
+from pgptai import aichat
+
 aichat.api_key = ""
 ```
 
