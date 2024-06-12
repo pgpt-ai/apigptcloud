@@ -1,4 +1,4 @@
-# pgptai
+# pgptAI
 
 专为Python提供的一站式AIGC接口集成包。有关我们的其他服务，欢迎访问我们的官网[apigpt.cloud](https://apigpt.cloud/)。
 

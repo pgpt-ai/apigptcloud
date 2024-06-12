@@ -1,4 +1,4 @@
-# pgptai
+# pgptAI
 All-in-one AIGC API package for Python
 
 For more info about our services, please visit our website [apigpt.cloud](https://apigpt.cloud/).
