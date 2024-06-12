@@ -9,7 +9,7 @@ pgptai旨在简化调用难度的同时，提供与原AIGC提供商一致的接�
 
 ## 安装
 ```bash
-pip install pgptai
+pip install pgptAI
 ```
 
 ## 使用方法
