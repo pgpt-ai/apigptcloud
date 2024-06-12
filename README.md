@@ -8,7 +8,7 @@ pgptai simplifies the way you use AIGC APIs by putting everything you need toget
 
 ## Installation
 ```bash
-pip install pgptai
+pip install pgptAI
 ```
 
 ## Usage
