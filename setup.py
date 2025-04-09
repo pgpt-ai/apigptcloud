@@ -7,8 +7,8 @@ LONG_DESCRIPTION = 'All in one AIGC API package for Python'
 setup(
     name="pgptAI",
     version=VERSION,
-    author="gantianyuneil",
-    author_email="apigpt@quseit.com",
+    author="QPython",
+    author_email="support@qpython.org",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
