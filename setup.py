@@ -9,8 +9,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="pgptAI",
     version=VERSION,
-    author="gantianyuneil",
-    author_email="apigpt@quseit.com",
+    author="QPython",
+    author_email="support@qpython.org",
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/markdown",
