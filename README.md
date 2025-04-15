@@ -1,7 +1,7 @@
 # pgptAI
 All-in-one AIGC API package for Python
 
-For more info about our services, please visit our website [apigpt.cloud](https://apigpt.cloud/).
+For more info about our services, please visit our website [pgpt.cloud](https://www.pgpt.cloud/ ).
 
 ## Intro
 pgptai simplifies the way you use AIGC APIs by putting everything you need together while keeping their original usages :)
