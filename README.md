@@ -13,18 +13,18 @@ pip install pgptAI
 
 ## Usage
 For now, we support the following AIGC providers' APIs, click to see their usages in pgptai:
-* [OpenAI](docs/openai.md)
-* [Claude](docs/claude.md)
-* [ChatGLM2](docs/chatglm.md)
-* [Stable Diffusion](docs/stablediffusion.md)
-* [GeminiAI](docs/geminiai.md)
+* [OpenAI](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/openai.md)
+* [Claude](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/claude.md)
+* [ChatGLM2](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/chatglm.md)
+* [Stable Diffusion](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/stablediffusion.md)
+* [GeminiAI](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/geminiai.md)
 
 Or, use our integrated API:
-* [AllAI](docs/allai.md)
+* [AllAI](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/allai.md)
 
 And, we also provide an AIChat service based on Langchain:
-* [AIChat](docs/aichat.md)
+* [AIChat](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/aichat.md)
 
 Some useful tools:  
-* [AudioAI](docs/audioai.md)
-* [TextAI](docs/textai.md)
+* [AudioAI](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/audioai.md)
+* [TextAI](https://github.com/pgpt-ai/apigptcloud/tree/main/docs/textai.md)

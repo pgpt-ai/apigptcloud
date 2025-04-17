@@ -3,8 +3,7 @@ import json
 from pgptai import openai
 
 supported_models = [
-    'gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-4', 'gpt-4-32k', 'gpt-4-turbo', 'gpt-3.5-turbo-instruct',
-    'gpt-4-turbo-vision'
+    'gpt-4o-mini', 'gpt-4o', 'gpt-o1-mini', 'deepseek-r1', 'deepseek-v3'
 ]
 
 
